@@ -5,7 +5,7 @@ RUN echo "Package: pdns-*\nPin: origin repo.powerdns.com\nPin-Priority: 600" > /
 RUN apt-get update && apt-get install -y pdns-recursor
 RUN mkdir -p /var/run/pdns-recursor
 
-ADD static/recursor.conf /etc/powerdns/
+ADD recursor.conf /etc/powerdns/
 
 EXPOSE 53
 ENTRYPOINT ["pdns_recursor","--daemon=no"]
